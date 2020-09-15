@@ -1,0 +1,12 @@
+{
+    "name": "mrd/outhlogin",
+    "require": {
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "authors": [
+        {
+            "name": "bdu",
+            "email": "bdu@kaikeba.com"
+        }
+    ]
+}
