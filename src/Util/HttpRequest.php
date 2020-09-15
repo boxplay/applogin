@@ -1,5 +1,5 @@
 <?php
-namespace boxplay\HttpRequest;
+namespace boxplay\OAuthLogin;
 
 use GuzzleHttp\Client;
 
