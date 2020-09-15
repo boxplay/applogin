@@ -1,5 +1,5 @@
 <?php
-namespace Yurun\OAuthLogin\Github;
+namespace boxplay\OAuthLogin\Github;
 
 use boxplay\OAuthLogin\ApiException;
 use boxplay\OAuthLogin\Base;
