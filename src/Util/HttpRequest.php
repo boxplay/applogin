@@ -77,6 +77,7 @@ class HttpRequest
                     'json' => $data,
                     'headers' => [
                         'Content_type' => 'application/json; charset=utf-8',
+                        'Accept' => 'application/json',
                     ],
                 ]
 
