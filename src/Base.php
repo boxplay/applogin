@@ -1,7 +1,7 @@
 <?php
 namespace boxplay\OAuthLogin;
 
-use boxplay\OAuthLogin\HttpRequest;
+use boxplay\OAuthLogin\Util\HttpRequest;
 
 abstract class Base
 {
