@@ -100,7 +100,7 @@ class OAuth2 extends Base
     {
         $this->result = $this->http->curlGet($this->getUrl('user', array(
             'access_token' => null === $accessToken ? $this->accessToken : $accessToken,
-        )))->json(true);
+        )));
         if (isset($this->result['message'])) {
             throw new ApiException($this->result['message'], 0);
         } else {
