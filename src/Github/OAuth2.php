@@ -83,9 +83,8 @@ class OAuth2 extends Base
             'redirect_uri' => $this->getRedirectUri(),
             'state' => isset($state) ? $state : (isset($_GET['state']) ? $_GET['state'] : ''),
         ));
-        return $this->result;
         if (isset($this->result['error'])) {
-            throw new ApiException($this->result['error'], 0);
+            return $this->result;
         } else {
             return $this->accessToken = $this->result['access_token'];
         }
@@ -102,7 +101,7 @@ class OAuth2 extends Base
             'access_token' => null === $accessToken ? $this->accessToken : $accessToken,
         )));
         if (isset($this->result['message'])) {
-            throw new ApiException($this->result['message'], 0);
+            return $this->result;
         } else {
             $this->openid = $this->result['id'];
             return $this->result;

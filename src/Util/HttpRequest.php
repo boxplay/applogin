@@ -20,13 +20,17 @@ class HttpRequest
      * @param array or object data 请求参数
      * @return array or null or object
      */
-    public function curlPost($url, $data)
+    public function curlPost($url, $data, $header = [])
     {
         if (!$url) {
             return $this->error('连接格式不正确', ErrorCode::INVALID_DATA);
         }
-        $resp = $this->HttpRequest('post', $url, $data);
-        return \GuzzleHttp\json_decode($resp->getBody()->__toString(), true);
+        try {
+            $resp = $this->HttpRequest('post', $url, $data, $header);
+            return \GuzzleHttp\json_decode($resp->getBody()->__toString(), true);
+        } catch (\GuzzleHttp\Exception\ClientException $err) {
+            return \GuzzleHttp\json_decode($err->getResponse()->getBody(true), true);
+        }
     }
 
     public function request_by_curl($method = 'get', $remote_server, $post_string = [])
@@ -52,13 +56,17 @@ class HttpRequest
      * @params url 请求地址
      * @return array or object or null
      */
-    public function curlGet($url)
+    public function curlGet($url, $header = [])
     {
         if (!$url) {
             return $this->error('连接格式不正确', ErrorCode::INVALID_DATA);
         }
-        $resp = $this->HttpRequest('get', $url);
-        return \GuzzleHttp\json_decode($resp->getBody()->__toString(), true);
+        try {
+            $resp = $this->HttpRequest('get', $url, [], $header);
+            return \GuzzleHttp\json_decode($resp->getBody()->__toString(), true);
+        } catch (\GuzzleHttp\Exception\ClientException $err) {
+            return \GuzzleHttp\json_decode($err->getResponse()->getBody(true), true);
+        }
     }
 
     /**
@@ -67,18 +75,20 @@ class HttpRequest
      * @param array or object or null $data 请求参数
      * @return array or object o rnull
      */
-    protected function HttpRequest($method, $url, $data = [])
+    protected function HttpRequest($method, $url, $data = [], $header = [])
     {
         try {
+            $h = [
+                'Content_type' => 'application/json; charset=utf-8',
+                'Accept' => 'application/json',
+            ];
+            $header = array_merge($h, $header);
             return $this->createHttp()->request(
                 $method,
                 $url,
                 [
                     'json' => $data,
-                    'headers' => [
-                        'Content_type' => 'application/json; charset=utf-8',
-                        'Accept' => 'application/json',
-                    ],
+                    'headers' => $header,
                 ]
 
             );
