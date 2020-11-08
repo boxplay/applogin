@@ -1,0 +1,8 @@
+<xml><ToUserName><![CDATA[gh_2cc0b854bd8d]]></ToUserName>
+<FromUserName><![CDATA[oyyRds_xjIZoN0VU7g0XqncdZ9Gs]]></FromUserName>
+<CreateTime>1604827501</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[https://m.someet.cc/member/index]]></EventKey>
+<MenuId>509197156</MenuId>
+</xml>
