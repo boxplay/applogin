@@ -1,6 +1,5 @@
 {
     "name": "mrd/outhlogin",
-    "version": "0.0.9",
     "require": {
         "guzzlehttp/guzzle": "^7.0"
     },
