@@ -91,7 +91,7 @@ class OAuth2 extends Base
     }
 
     /**
-     * 获取用户资料
+     * 获取用户资料，token方式
      * @param string $accessToken
      * @return array
      */
