@@ -141,7 +141,7 @@ abstract class Base
         if (null === $state) {
             if (null === $this->state) {
                 if (isset($_GET['state'])) {
-                    $state = $_GET['state'];
+                    $state = $_GET['state'] ? $_GET['state'] : $_POST['state'];
                 } else {
                     $state = '';
                 }
