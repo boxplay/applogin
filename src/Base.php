@@ -131,7 +131,7 @@ abstract class Base
     }
 
     /**
-     * 检测state是否相等
+     * 检测state是否相等,也可使用post
      * @param string $storeState 本地存储的正确的state
      * @param string $state 回调传递过来的state
      * @return bool
