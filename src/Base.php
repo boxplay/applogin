@@ -142,7 +142,7 @@ abstract class Base
             if (null === $this->state) {
                 $post = json_decode(file_get_contents('php://input'), true);
 
-                return isset($post['state']) ? $post['state'] : '';
+                $state = isset($post['state']) ? $post['state'] : '';
                 if (isset($_GET['state'])) {
                     $state = $_GET['state'];
                 } else {
