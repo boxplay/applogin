@@ -71,12 +71,13 @@ abstract class Base
      * @param string $appSecret appid对应的密钥
      * @param string $callbackUrl 登录回调地址
      */
-    public function __construct($appid = null, $appSecret = null, $callbackUrl = null)
+    public function __construct($appid = null, $appSecret = null, $callbackUrl = null, $state = '')
     {
         $this->appid = $appid;
         $this->appSecret = $appSecret;
         $this->callbackUrl = $callbackUrl;
         $this->http = new HttpRequest;
+        $this->state = $state;
     }
 
     /**

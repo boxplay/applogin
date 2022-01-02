@@ -33,7 +33,7 @@ class OAuth2 extends Base
             'client_id' => $this->appid,
             'scope' => 'repo,topic',
             'redirect_uri' => $this->callbackUrl,
-            'state' => 'devland',
+            'state' => $this->state,
             'response_type' => 'code',
         ];
         return static::AUTH_DOMAIN . (empty($params) ? '' : ('?' . $this->http_build_query($params)));
