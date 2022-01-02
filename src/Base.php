@@ -132,7 +132,7 @@ abstract class Base
     }
 
     /**
-     * 检测state是否相等
+     * 检测state是否相等,也可使用post传参数
      * @param string $storeState 本地存储的正确的state
      * @param string $state 回调传递过来的state
      * @return bool
@@ -141,16 +141,18 @@ abstract class Base
     {
         if (null === $state) {
             if (null === $this->state) {
+                $post = json_decode(file_get_contents('php://input'), true);
+
+                $state = isset($post['state']) ? $post['state'] : '';
                 if (isset($_GET['state'])) {
                     $state = $_GET['state'];
-                } else {
-                    $state = '';
                 }
             } else {
                 $state = $this->state;
             }
         }
         return $storeState === $state;
+
     }
 
     /**

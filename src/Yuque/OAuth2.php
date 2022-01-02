@@ -93,7 +93,7 @@ class OAuth2 extends Base
         if (isset($this->result['message'])) {
             throw new ApiException($this->result['message'], 0);
         } else {
-            $this->openid = $this->result['id'];
+            $this->openid = $this->result['data']['id'];
             return $this->result;
         }
     }

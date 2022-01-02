@@ -91,15 +91,17 @@ class OAuth2 extends Base
     }
 
     /**
-     * 获取用户资料
+     * 获取用户资料，token方式
      * @param string $accessToken
      * @return array
      */
     public function getUserInfo($accessToken = null)
     {
-        $this->result = $this->http->curlGet($this->getUrl('user', array(
-            'access_token' => null === $accessToken ? $this->accessToken : $accessToken,
-        )));
+        $url = $this->getUrl('user');
+        $this->result = $this->http->curlGet($url, [
+            'Authorization' => "token {$accessToken}",
+        ]);
+
         if (isset($this->result['message'])) {
             return $this->result;
         } else {
