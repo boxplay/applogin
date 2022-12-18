@@ -65,19 +65,22 @@ abstract class Base
      */
     public $loginAgentUrl;
 
+    public $wechatToken;
+
     /**
      * 构造方法
      * @param string $appid 应用的唯一标识
      * @param string $appSecret appid对应的密钥
      * @param string $callbackUrl 登录回调地址
      */
-    public function __construct($appid = null, $appSecret = null, $callbackUrl = null, $state = '')
+    public function __construct($appid = null, $appSecret = null, $callbackUrl = null, $state = '',$wechatToken='devland')
     {
         $this->appid = $appid;
         $this->appSecret = $appSecret;
         $this->callbackUrl = $callbackUrl;
         $this->http = new HttpRequest;
         $this->state = $state;
+        $this->wechatToken = $wechatToken;
     }
 
     /**

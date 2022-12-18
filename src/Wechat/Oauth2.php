@@ -49,7 +49,7 @@ class OAuth2 extends Base
         $signature = $_GET["signature"];
         $timestamp = $_GET["timestamp"];
         $nonce = $_GET["nonce"];
-        $token = $this->token;
+        $token = $this->wechatToken?$this->wechatToken:'devland';
         $tmpArr = array($token, $timestamp, $nonce);
         sort($tmpArr, SORT_STRING);
         $tmpStr = implode($tmpArr);
