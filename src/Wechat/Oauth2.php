@@ -108,7 +108,7 @@ class OAuth2 extends Base
             'secret' => $this->appSecret,
         ]), []);
         if (isset($this->result['access_token'])) {
-            $this->result['expires_in'] += time();
+            $this->result['expires_in'] += time() - 600;
             $saveData = file_put_contents(dirname($_SERVER['DOCUMENT_ROOT']) . '/token.json', json_encode($this->result));
         }
         return $this->result;
