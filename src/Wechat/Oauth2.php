@@ -78,8 +78,8 @@ class OAuth2 extends Base
         // $tokenData = file_put_contents(dirname(__FILE__) . '/1.txt', '12312');
         //检查是否存在token 的json文件
         $jsonData = '';
-        if (file_exists(dirname($_SERVER['DOCUMENT_ROOT']) . '/token.json')) {
-            $jsonData = file_get_contents(dirname($_SERVER['DOCUMENT_ROOT']) . '/token.json');
+        if (file_exists(dirname(__FILE__) . '/token.json')) {
+            $jsonData = file_get_contents(dirname(__FILE__) . '/token.json');
         }
         $tokenData = $jsonData ? json_decode($jsonData, true) : '';
         if (!$tokenData) {
@@ -109,7 +109,7 @@ class OAuth2 extends Base
         ]), []);
         if (isset($this->result['access_token'])) {
             $this->result['expires_in'] += time() - 600;
-            $saveData = file_put_contents(dirname($_SERVER['DOCUMENT_ROOT']) . '/token.json', json_encode($this->result));
+            $saveData = file_put_contents(dirname(__FILE__) . '/token.json', json_encode($this->result));
         }
         return $this->result;
     }
