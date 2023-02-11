@@ -1,13 +1,13 @@
 {
     "name": "mrd/outhlogin",
-    "version": "v0.1.4",
+    "version": "v0.1.5",
     "require": {
         "guzzlehttp/guzzle": "^7.0"
     },
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "boxplay\\OAuthLogin\\": "src/"
+            "boxplay\\OAuthLogin\\": "boxplay/oauthLogin/src/"
         }
     },
     "authors": [{
